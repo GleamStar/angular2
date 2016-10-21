@@ -1,0 +1,45 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <div class="page-header">
+    <h1> List of js frameworks  </h1>
+  </div>
+  <div class="panel">
+    <div class="form-inline">
+      <div class="form-group">
+        <div class="col-md-8">
+          <input class="form-control"  value.bind="name" placeholder = "Name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <input type="number" class="form-control" value.bind="year" placeholder="Year" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <input type="checkbox" class="form-control" value.bind="used" placeholder="Using" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+          <button class="btn btn-default" click.delegate="addItem(name, year, used)">Add</button>
+        </div>
+      </div>
+    </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th> Name </th>
+      <th> Year </th>
+      <th> Are you use it ?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr repeat.for="item of items">
+      <td>${item.framework}</td>
+      <td>${item.year}</td>
+      <td><input type="checkbox" value.bind="item.used" /></td>
+    </tr>
+    </tbody>
+  </table>
+</template>
